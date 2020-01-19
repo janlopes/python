@@ -25,7 +25,7 @@ class TestViews(TestCase):
     def test_delete_view(self):
         path = reverse('delete',  args=[1])
         request = self.factory.get(path)
-        response = add(request, 1)
+        response = delete(request, 1)
         assert 'movies' in response.url and response.status_code == 302
     
     def test_index_view(self):
