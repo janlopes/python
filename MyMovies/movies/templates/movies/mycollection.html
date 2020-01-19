@@ -1,0 +1,34 @@
+{% extends "movies/base.html" %}
+{% block content %}
+
+<ul>
+  <li><a href="/movies">Movies</a></li>
+  <li><a class="active" href="/movies/mycollection">My Favorite</a></li>
+</ul>
+
+<div class="container">  
+    <form id="contact" action="" method="post">
+      
+      {% if all_movies %}
+      <h3>Your Movies</h3>
+      {% else %}
+      <h3>You have no movies</h3>
+      {% endif %}
+
+      {% for m in all_movies %}
+      
+      <fieldset>
+        <label><strong>Title:</strong> {{m.title}}</label>
+      </fieldset>
+      <fieldset>
+        <label><strong>Date:</strong> {{m.date}}</label>
+      </fieldset>
+      <fieldset>
+        <a class="button" href="/movies/{{m.id}}/delete">DELETE</a>
+      </fieldset>
+
+      {% endfor %}
+
+    </form>
+  </div>
+  {% endblock %}
